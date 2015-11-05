@@ -1,8 +1,8 @@
 /*
- * Créé le 22 févr. 2015
+ * Crï¿½ï¿½ le 22 fï¿½vr. 2015
  *
- * TODO Pour changer le modèle de ce fichier généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * TODO Pour changer le modï¿½le de ce fichier gï¿½nï¿½rï¿½, allez ï¿½ :
+ * Fenï¿½tre - Prï¿½fï¿½rences - Java - Style de code - Modï¿½les de code
  */
 package gsb.modele.dao;
 
@@ -18,24 +18,24 @@ import java.util.HashMap;
 
 /**
  * @author Isabelle
- * 22 févr. 2015
- * TODO Pour changer le modèle de ce commentaire de type généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * 22 fï¿½vr. 2015
+ * TODO Pour changer le modï¿½le de ce commentaire de type gï¿½nï¿½rï¿½, allez ï¿½ :
+ * Fenï¿½tre - Prï¿½fï¿½rences - Java - Style de code - Modï¿½les de code
  */
 public class MedecinDao {
 	
-	public static Medecin rechercher(String codeMedecin){
+	public static Medecin rechercherMedecin(String codeMedecin){
 		Medecin unMedecin=null;
 		Localite uneLocalite= null;
 		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from MEDECIN where CODEMED ='"+codeMedecin+"'");
 		try {
 			if (reqSelection.next()) {
-				uneLocalite = LocaliteDao.rechercher(reqSelection.getString(5));
+				uneLocalite = LocaliteDao.rechercherLocalite(reqSelection.getString(5));
 				unMedecin = new Medecin(reqSelection.getString(1), reqSelection.getString(2), reqSelection.getString(3), reqSelection.getString(4), uneLocalite, reqSelection.getString(6), reqSelection.getString(7), reqSelection.getString(8) );	
 			};
 			}
 		catch(Exception e) {
-			System.out.println("erreur reqSelection.next() pour la requête - select * from MEDECIN where CODEMED ='"+codeMedecin+"'");
+			System.out.println("erreur reqSelection.next() pour la requï¿½te - select * from MEDECIN where CODEMED ='"+codeMedecin+"'");
 			e.printStackTrace();
 			}
 		ConnexionMySql.fermerConnexionBd();
@@ -48,7 +48,7 @@ public class MedecinDao {
 		try{
 		while (reqSelection.next()) {
 			String codeMedecin = reqSelection.getString(1);
-		    collectionDesMedecins.add(MedecinDao.rechercher(codeMedecin));
+		    collectionDesMedecins.add(MedecinDao.rechercherMedecin(codeMedecin));
 			}
 		}
 		catch (SQLException e) {
@@ -64,7 +64,7 @@ public class MedecinDao {
 		try{
 		while (reqSelection.next()) {
 			String codeMedecin = reqSelection.getString(1);
-		    diccoDesMedecins.put(codeMedecin, MedecinDao.rechercher(codeMedecin));
+		    diccoDesMedecins.put(codeMedecin, MedecinDao.rechercherMedecin(codeMedecin));
 			}
 		}
 		catch (SQLException e) {

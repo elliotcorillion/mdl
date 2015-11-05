@@ -1,16 +1,14 @@
 /*
- * Créé le 22 févr. 2015
+ * Crï¿½ï¿½ le 22 fï¿½vr. 2015
  *
- * TODO Pour changer le modèle de ce fichier généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * TODO Pour changer le modï¿½le de ce fichier gï¿½nï¿½rï¿½, allez ï¿½ :
+ * Fenï¿½tre - Prï¿½fï¿½rences - Java - Style de code - Modï¿½les de code
  */
 package gsb.modele;
 
 /**
  * @author Isabelle
- * 22 févr. 2015
- * TODO Pour changer le modèle de ce commentaire de type généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * 22 fï¿½vr. 2015
  */
 public class Localite {
 	protected String codePostal;
@@ -30,7 +28,7 @@ public class Localite {
 		return codePostal;
 	}
 	/**
-	 * @param codePostal codePostal à définir.
+	 * @param codePostal codePostal ï¿½ dï¿½finir.
 	 */
 	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
@@ -42,10 +40,9 @@ public class Localite {
 		return ville;
 	}
 	/**
-	 * @param ville ville à définir.
+	 * @param ville ville ï¿½ dï¿½finir.
 	 */
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
 }

@@ -1,25 +1,25 @@
 /*
- * Créé le 22 févr. 2015
+ * Crï¿½ï¿½ le 22 fï¿½vr. 2015
  *
- * TODO Pour changer le modèle de ce fichier généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * TODO Pour changer le modï¿½le de ce fichier gï¿½nï¿½rï¿½, allez ï¿½ :
+ * Fenï¿½tre - Prï¿½fï¿½rences - Java - Style de code - Modï¿½les de code
  */
 package gsb.modele.dao;
 
 import gsb.modele.Localite;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 /**
- * @author Isabelle
- * 22 févr. 2015
- * TODO Pour changer le modèle de ce commentaire de type généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * @author Erwan
+ * @date 16/10/15
  */
 public class LocaliteDao {
 	
-	public static Localite rechercher(String codeLocalite){
+	public static Localite rechercherLocalite(String codeLocalite){
 		Localite uneLocalite=null;
 		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from LOCALITE where CODEPOSTAL='"+codeLocalite+"'");
 		try {
@@ -28,11 +28,27 @@ public class LocaliteDao {
 			};
 			}
 		catch(Exception e) {
-			System.out.println("erreur reqSelection.next() pour la requête - select * from LOCALITE where CODEPOSTAL='"+codeLocalite+"'");
+			System.out.println("erreur reqSelection.next() pour la requï¿½te - select * from LOCALITE where CODEPOSTAL='"+codeLocalite+"'");
 			e.printStackTrace();
 			}
 		ConnexionMySql.fermerConnexionBd();
 		return uneLocalite;
+	}
+	
+	public static ArrayList<Localite> retournerCollectionDesLocalites(){
+		ArrayList<Localite> collectionDesLocalites = new ArrayList<Localite>();
+		ResultSet reqSelection = ConnexionMySql.execReqSelection("select CODEPOSTAL from LOCALITE");
+		try{
+		while (reqSelection.next()) {
+			String codeLocalite = reqSelection.getString(1);
+		    collectionDesLocalites.add(LocaliteDao.rechercherLocalite(codeLocalite));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("erreur retournerCollectionDesLocalites()");
+		}
+		return collectionDesLocalites;
 	}
 
 }
