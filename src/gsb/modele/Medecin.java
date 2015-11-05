@@ -17,7 +17,8 @@ public class Medecin {
 	protected String nom;
 	protected String prenom;
 	protected String adresse;
-	protected Localite laLocalite;
+	protected String codePostal;
+	protected String ville;
 	protected String telephone;
 	protected String potentiel;
 	protected String specialite;
@@ -26,19 +27,21 @@ public class Medecin {
 	 * @param nom
 	 * @param prenom
 	 * @param adresse
-	 * @param laLocalite
+	 * @param codePostal
+	 * @param ville
 	 * @param telephone
 	 * @param potentiel
 	 * @param specialite
 	 */
 	public Medecin(String codeMed, String nom, String prenom,
-			String adresse, Localite laLocalite, String telephone,
+			String adresse, String codePostal, String ville, String telephone,
 			String potentiel, String specialite) {
 		this.codeMed = codeMed;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
-		this.laLocalite = laLocalite;
+		this.codePostal = codePostal;
+		this.ville = ville;
 		this.telephone = telephone;
 		this.potentiel = potentiel;
 		this.specialite = specialite;
@@ -92,16 +95,30 @@ public class Medecin {
 		this.adresse = adresse;
 	}
 	/**
-	 * @return Renvoie laLocalite.
+	 * @return 
+	 * @return Renvoie codePostal.
 	 */
-	public Localite getLaLocalite() {
-		return laLocalite;
+	public String getCodePostal() {
+		return codePostal;
 	}
 	/**
-	 * @param laLocalite laLocalite � d�finir.
+	 * @param codePostal codePostal � d�finir.
 	 */
-	public void setLaLocalite(Localite laLocalite) {
-		this.laLocalite = laLocalite;
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
+	/**
+	 * @return 
+	 * @return Renvoie codePostal.
+	 */
+	public String getVille() {
+		return codePostal;
+	}
+	/**
+	 * @param codePostal codePostal � d�finir.
+	 */
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	/**
 	 * @return Renvoie telephone.

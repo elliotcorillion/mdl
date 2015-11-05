@@ -18,8 +18,10 @@ public class Visiteur {
 	protected String telephoneVisiteur;
 	protected String dateEntreeVisiteur;
 	protected int prime;
-	protected Unite lUnite;
-	protected Localite laLocalite;
+	protected String codeUnite;
+	protected String nomUnite;
+	protected String codePostal;
+	protected String ville;
 	
 	
 	/**
@@ -34,9 +36,10 @@ public class Visiteur {
 	 * @param uneDateEntree
 	 * @param unePrime
 	 * @param uneUnite
-	 * @param uneLocalite
+	 * @param codePostal
+	 * @param ville
 	 */
-	public Visiteur (String unMatriculeVisiteur, String unNomVisiteur, String unPrenomVisiteur, String unLogin, String unMdp, String uneAdresseVisiteur, String unTelephoneVisiteur, String uneDateEntree, int unePrime, Unite uneUnite, Localite uneLocalite){
+	public Visiteur (String unMatriculeVisiteur, String unNomVisiteur, String unPrenomVisiteur, String unLogin, String unMdp, String uneAdresseVisiteur, String unTelephoneVisiteur, String uneDateEntree, int unePrime, String codeUnite, String nomUnite, String codePostal, String ville){
 		
 		this.matriculeVisiteur = unMatriculeVisiteur;
 		this.nomVisiteur = unNomVisiteur;
@@ -47,8 +50,10 @@ public class Visiteur {
 		this.telephoneVisiteur = unTelephoneVisiteur;
 		this.dateEntreeVisiteur = uneDateEntree;
 		this.prime = unePrime;
-		this.lUnite = uneUnite;
-		this.laLocalite = uneLocalite;
+		this.codeUnite = codeUnite;
+		this.nomUnite = nomUnite;
+		this.codePostal = codePostal;
+		this.ville = ville;
 		
 	}
 
@@ -198,34 +203,60 @@ public class Visiteur {
 
 	/**
 	 * 
-	 * @return Retourne l'objet Unité
+	 * @return Retourne la prime du visiteur
 	 */
-	public Unite getlUnite() {
-		return lUnite;
+	public String getCodeUnite() {
+		return codeUnite;
 	}
 
 	/**
 	 * 
-	 * @param Set lUnite
+	 * @param Set la prime
 	 */
-	public void setlUnite(Unite lUnite) {
-		this.lUnite = lUnite;
+	public void setNomUnite(String nomUnite) {
+		this.nomUnite = nomUnite;
+	}
+	/**
+	 * 
+	 * @return Retourne la prime du visiteur
+	 */
+	public String getNomUnite() {
+		return nomUnite;
 	}
 
 	/**
 	 * 
-	 * @return Retourne l'objet Localité
+	 * @param Set la prime
 	 */
-	public Localite getLaLocalite() {
-		return laLocalite;
+	public void setCodeUnite(String codeUnite) {
+		this.codeUnite = codeUnite;
 	}
 
 	/**
-	 * 
-	 * @param Set laLocalite
+	 * @return 
+	 * @return Renvoie codePostal.
 	 */
-	public void setLaLocalite(Localite laLocalite) {
-		this.laLocalite = laLocalite;
+	public String getCodePostal() {
+		return codePostal;
+	}
+	/**
+	 * @param codePostal codePostal � d�finir.
+	 */
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
+	/**
+	 * @return 
+	 * @return Renvoie codePostal.
+	 */
+	public String getVille() {
+		return codePostal;
+	}
+	/**
+	 * @param codePostal codePostal � d�finir.
+	 */
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	
 }

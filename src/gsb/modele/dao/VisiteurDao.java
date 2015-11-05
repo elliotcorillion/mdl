@@ -1,8 +1,6 @@
 package gsb.modele.dao;
 
-import gsb.modele.Localite;
 import gsb.modele.Visiteur;
-import gsb.modele.Unite;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,34 +21,10 @@ public class VisiteurDao {
 		
 		Visiteur unVisiteur=null;
 		ResultSet reqSelectionVisiteur = ConnexionMySql.execReqSelection("select * from VISITEUR where MATRICULE='"+codeVisiteur+"'");
-		Unite uneUnite= null;
-		ResultSet reqSelectionUnite = ConnexionMySql.execReqSelection("select UNITE.CODEUNIT, UNITE.NOM from UNITE, VISITEUR where UNITE.CODEUNIT=VISITEUR.CODEUNIT and MATRICULE='"+codeVisiteur+"'");
-		Localite uneLocalite = null;
-		ResultSet reqSelectionLocalite = ConnexionMySql.execReqSelection("select CODEPOSTAL, VILLE from LOCALITE, VISITEUR where LOCALITE.CODEPOSTAL=VISITEUR.CODEPOSTAL and MATRICULE='"+codeVisiteur+"'");
-		
-		try {
-			if (reqSelectionLocalite.next()) {
-				uneUnite = new Unite(reqSelectionLocalite.getString(1), reqSelectionLocalite.getString(2));
-			}
-		}
-		catch(Exception e){
-			System.out.println("erreur reqSelection.next() pour la requête - select CODEPOSTAL, VILLE from LOCALITE, VISITEUR where LOCALITE.CODEPOSTAL=VISITEUR.CODEPOSTAL and MATRICULE='"+codeVisiteur+"'");
-			e.printStackTrace();
-		}
 		
 		try {
 			if (reqSelectionVisiteur.next()) {
-				uneUnite = new Unite(reqSelectionUnite.getString(1), reqSelectionUnite.getString(2));
-			}
-		}
-		catch(Exception e){
-			System.out.println("erreur reqSelection.next() pour la requête - select UNITECODEUNIT, UNITE.NOM from UNITE, VISITEUR where UNITE.CODEUNITE=VISITEUR.CODEUNITE and MATRICULE='"+codeVisiteur+"'");
-			e.printStackTrace();
-		}
-		
-		try {
-			if (reqSelectionVisiteur.next()) {
-				unVisiteur = new Visiteur(reqSelectionVisiteur.getString(1), reqSelectionVisiteur.getString(2), reqSelectionVisiteur.getString(3), reqSelectionVisiteur.getString(4), reqSelectionVisiteur.getString(5), reqSelectionVisiteur.getString(6), reqSelectionVisiteur.getString(7),reqSelectionVisiteur.getString(8), reqSelectionVisiteur.getInt(9), uneUnite, uneLocalite);	
+				unVisiteur = new Visiteur(reqSelectionVisiteur.getString(1), reqSelectionVisiteur.getString(2), reqSelectionVisiteur.getString(3), reqSelectionVisiteur.getString(4), reqSelectionVisiteur.getString(5), reqSelectionVisiteur.getString(6), reqSelectionVisiteur.getString(7),reqSelectionVisiteur.getString(8), reqSelectionVisiteur.getInt(9), reqSelectionVisiteur.getString(10), reqSelectionVisiteur.getString(11), reqSelectionVisiteur.getString(12),reqSelectionVisiteur.getString(13));	
 			}
 		}
 		catch(Exception e) {
@@ -74,17 +48,19 @@ public class VisiteurDao {
 		String tel = unVisiteur.getTelephoneVisiteur();
 		String date = unVisiteur.getDateEntreeVisiteur();
 		int prime = unVisiteur.getPrime();
-		String unite = unVisiteur.getlUnite().getCodeUnite();
-		String cp = unVisiteur.getLaLocalite().getCodePostal();
+		String codeUnite = unVisiteur.getCodeUnite();
+		String nomUnite = unVisiteur.getNomUnite();
+		String cp = unVisiteur.getCodePostal();
+		String ville = unVisiteur.getVille();
 		
 		try{
-			requeteInsertion = "insert into destination values('"+code+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+tel+"','"+date+"',"+prime+",'"+unite+"','"+cp+"')";
+			requeteInsertion = "insert into destination values('"+code+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+tel+"','"+date+"',"+prime+",'"+codeUnite+"','"+nomUnite+"','"+cp+"','"+ville+"')";
 			System.out.println(requeteInsertion);
 			int result = ConnexionMySql.execReqMaj(requeteInsertion);
 			System.out.println(result);
 		}
 		catch(Exception e){
-			System.out.println("erreur reqSelection.next() pour la requête - insert into destination values('"+code+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+tel+"','"+date+"',"+prime+",'"+unite+"','"+cp+"')");
+			System.out.println("erreur reqSelection.next() pour la requête - insert into destination values('"+code+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+tel+"','"+date+"',"+prime+",'"+codeUnite+"','"+nomUnite+"','"+cp+"','"+ville+"')");
 			e.printStackTrace();
 		}
 		ConnexionMySql.fermerConnexionBd();

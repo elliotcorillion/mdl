@@ -58,12 +58,13 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 		p = new JPanel(); // panneau principal de la fen�tre
 
 		int i=0;
-		String[][] data = new String[nbLignes][4] ;
+		String[][] data = new String[nbLignes][5] ;
 		for(Medecin unMedecin : lesMedecins){
 			data[i][0] = unMedecin.getCodeMed();
 			data[i][1] = unMedecin.getNom();
 			data[i][2] = unMedecin.getPrenom();
-			data[i][3] = unMedecin.getLaLocalite().getVille() ;
+			data[i][3] = unMedecin.getVille();
+			data[i][4] = unMedecin.getCodePostal();
 			i++;
 			}
 		String[] columnNames = {"Code", "Nom","Prenom","Ville"};
