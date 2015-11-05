@@ -1,7 +1,7 @@
 package gsb.modele;
 
 /**
- * @author Erwan
+ * @author Elliot
  * @date 15/10/15
  */
 
