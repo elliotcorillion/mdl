@@ -13,7 +13,8 @@ public class Medicament {
 	protected String effets;
 	protected String contreIndication;
 	protected float prixEchantillon; 
-	protected Famille laFamille;
+	protected String codeFamille;
+	protected String libelleFamille;
 	
 	
 	/**
@@ -24,9 +25,10 @@ public class Medicament {
 	 * @param desEffets
 	 * @param uneContreIndication
 	 * @param unPrixEchantillon
-	 * @param uneFamille
+	 * @param unCodeFamille
+	 * àparam unLibelleFamille
 	 */
-	public Medicament(String unDepotLegal, String unNomCommercial, String uneComposition, String desEffets, String uneContreIndication, float unPrixEchantillon, Famille uneFamille){
+	public Medicament(String unDepotLegal, String unNomCommercial, String uneComposition, String desEffets, String uneContreIndication, float unPrixEchantillon, String unCodeFamille, String unLibelleFamille){
 		
 		this.depotLegal = unDepotLegal;
 		this.nomCommercial = unNomCommercial;
@@ -34,7 +36,9 @@ public class Medicament {
 		this.effets = desEffets;
 		this.contreIndication = uneContreIndication;
 		this.prixEchantillon = unPrixEchantillon;
-		this.laFamille = uneFamille;
+		this.codeFamille = unCodeFamille;
+		this.libelleFamille = unLibelleFamille;
+		
 		
 	}
 
@@ -136,18 +140,34 @@ public class Medicament {
 
 	/**
 	 * 
-	 * @return Return l'objet Famille
+	 * @return Return l'objet unCodeFamille
 	 */
-	public Famille getLaFamille() {
-		return laFamille;
+	public String getCodeFamille() {
+		return codeFamille;
 	}
 
 	/**
 	 * 
-	 * @param Set l'objet laFamille
+	 * @param Set l'objet unCodeFamille
 	 */
-	public void setLaFamille(Famille laFamille) {
-		this.laFamille = laFamille;
+	public void setCodeFamille(String unCodeFamille) {
+		this.codeFamille = unCodeFamille;
+	}
+	
+	/**
+	 * 
+	 * @return Return l'objet unLibelleFamille
+	 */
+	public String getLibelleFamille() {
+		return libelleFamille;
+	}
+
+	/**
+	 * 
+	 * @param Set l'objet unCodeFamille
+	 */
+	public void setLibelleFamille(String unLibelleFamille) {
+		this.codeFamille = unLibelleFamille;
 	}
 	
 }
