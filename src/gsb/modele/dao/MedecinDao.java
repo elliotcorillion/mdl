@@ -25,14 +25,14 @@ public class MedecinDao {
 	
 	public static Medecin rechercherMedecin(String codeMedecin){
 		Medecin unMedecin=null;
-		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from MEDECIN where CODEMED ='"+codeMedecin+"'");
+		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from MEDECIN where CODEMED ='"+codeMedecin+"';");
 		try {
 			if (reqSelection.next()) {
 				unMedecin = new Medecin(reqSelection.getString(1), reqSelection.getString(2), reqSelection.getString(3), reqSelection.getString(4), reqSelection.getString(5), reqSelection.getString(6), reqSelection.getString(7), reqSelection.getString(8),reqSelection.getString(9) );	
 			};
 			}
 		catch(Exception e) {
-			System.out.println("erreur reqSelection.next() pour la requ�te - select * from MEDECIN where CODEMED ='"+codeMedecin+"'");
+			System.out.println("erreur reqSelection.next() pour la requ�te - select * from MEDECIN where CODEMED ='"+codeMedecin+"';");
 			e.printStackTrace();
 			}
 		ConnexionMySql.fermerConnexionBd();

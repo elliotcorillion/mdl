@@ -1,8 +1,8 @@
 /*
- * Créé le 22 févr. 2015
+ * CrÃ©Ã© le 22 fÃ©vr. 2015
  *
- * TODO Pour changer le modèle de ce fichier généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * TODO Pour changer le modÃ¨le de ce fichier gÃ©nÃ©rÃ©, allez Ã  :
+ * FenÃªtre - PrÃ©fÃ©rences - Java - Style de code - ModÃ¨les de code
  */
 package gsb.vue;
 
@@ -20,9 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 /**
- * @author Isabelle 22 févr. 2015 TODO Pour changer le modèle de ce commentaire
- *         de type généré, allez à : Fenêtre - Préférences - Java - Style de
- *         code - Modèles de code
+ * @author ELliot 02 Nov. 2015 
  */
 public class MenuPrincipal extends JFrame implements ActionListener {
 
@@ -45,7 +43,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public MenuPrincipal() {
 
 		myJInternalFrame = new JInternalFrame(); // pour affichage d'une seule
-													// JInternalFrame à la fois
+													// JInternalFrame Ã  la fois
 		desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.gray);
 		JPanel contentPane = (JPanel) this.getContentPane();
@@ -54,11 +52,11 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		setTitle("GSB");
 		setSize(500, 400);
 
-		// Ajout d'une barre de menus à la fenêtre
+		// Ajout d'une barre de menus Ã  la fenÃªtre
 		mbar = new JMenuBar();
 		mMedecins = new JMenu("Medecins");
 		JMenuItem mC1 = new JMenuItem("Consultation Medecin");
-		mC1.addActionListener(this); // installation d'un écouteur d'action
+		mC1.addActionListener(this); // installation d'un Ã©couteur d'action
 		mMedecins.add(mC1);
 		JMenuItem mC2 = new JMenuItem("Liste Medecins");
 		mC2.addActionListener(this);
@@ -66,7 +64,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 		mMedicaments = new JMenu("Medicaments");
 		JMenuItem mE1 = new JMenuItem("Consultation Medicament");
-		mE1.addActionListener(this); // installation d'un écouteur d'action
+		mE1.addActionListener(this); // installation d'un Ã©couteur d'action
 		mMedicaments.add(mE1);
 		JMenuItem mE2 = new JMenuItem("Ajout Medicaments");
 		mE2.addActionListener(this);
@@ -74,7 +72,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 		mVisites = new JMenu("Visites");
 		JMenuItem mA1 = new JMenuItem("Consultation Visite");
-		mE1.addActionListener(this); // installation d'un écouteur d'action
+		mE1.addActionListener(this); // installation d'un Ã©couteur d'action
 		mVisites.add(mA1);
 		JMenuItem mA2 = new JMenuItem("Ajout Visite");
 		mA2.addActionListener(this);
@@ -90,16 +88,19 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		// TODO Raccord de méthode auto-généré
 		if (evt.getSource() instanceof JMenuItem) {
 			String ChoixOption = evt.getActionCommand();
 
 			if (ChoixOption.equals("Consultation Medecin")) {
-				// Creation d'une sous-fenêtre
+				// Creation d'une sous-fenÃªtre
 				ouvrirFenetre(new JIFMedecinCons());
-
 			} else if (ChoixOption.equals("Liste Medecins")) {
-				ouvrirFenetre(new JIFMedecinListeDic(this));
+				ouvrirFenetre(new JIFMedecinListeCol(this));
+			}else if (ChoixOption.equals("Consultation Medicament")) {
+				// Creation d'une sous-fenÃªtre
+				ouvrirFenetre(new JIFMedicamentCons());
+			} else if (ChoixOption.equals("Ajout Medicaments")) {
+				ouvrirFenetre(new JIFMedicamentListeCol(this));
 			}
 
 		}
@@ -107,8 +108,8 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void ouvrirFenetre(JInternalFrame uneFenetre) {
-		myJInternalFrame.dispose(); // si une fenêtre était dejà affichée, elle
-									// est libérée
+		myJInternalFrame.dispose(); // si une fenÃªtre Ã©tait dejÃ  affichÃ©e, elle
+									// est libÃ©rÃ©e
 		myJInternalFrame = uneFenetre;
 		myJInternalFrame.setVisible(true);
 		myJInternalFrame.setResizable(true);
