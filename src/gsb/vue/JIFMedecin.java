@@ -53,11 +53,11 @@ public class JIFMedecin extends JInternalFrame  {
     	
     	 JLcode = new JLabel("Code");
          JLnom = new JLabel("Nom");
-         JLprenom = new JLabel("Pr�nom");
+         JLprenom = new JLabel("Prénom");
          JLadresse = new JLabel("Adresse rue");
          JLcp = new JLabel("Code postal");
          JLville = new JLabel("Ville");
-         JLtelephone = new JLabel("T�l�phone");
+         JLtelephone = new JLabel("Téléphone");
          JLpotentiel = new JLabel("potentiel");
          JLspecialite = new JLabel("ASpecialite");
          

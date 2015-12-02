@@ -23,16 +23,16 @@ import java.util.HashMap;
  */
 public class MedicamentDao {
 	
-	public static Medicament rechercherMedicament(String codeMedicament){
+	public static Medicament rechercherMedicament(String MED_DEPOTLEGALicament){
 		Medicament unMedicament=null;
-		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from Medicament where CODEMED ='"+codeMedicament+"';");
+		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from Medicament where MED_DEPOTLEGAL ='"+MED_DEPOTLEGALicament+"';");
 		try {
 			if (reqSelection.next()) {
 				unMedicament = new Medicament(reqSelection.getString(1), reqSelection.getString(2), reqSelection.getString(3), reqSelection.getString(4), reqSelection.getString(5), reqSelection.getFloat(6), reqSelection.getString(7), reqSelection.getString(8));	
 			};
 			}
 		catch(Exception e) {
-			System.out.println("erreur reqSelection.next() pour la requ�te - select * from Medicament where CODEMED ='"+codeMedicament+"';");
+			System.out.println("erreur reqSelection.next() pour la requ�te - select * from Medicament where MED_DEPOTLEGAL ='"+MED_DEPOTLEGALicament+"';");
 			e.printStackTrace();
 			}
 		ConnexionMySql.fermerConnexionBd();
@@ -41,11 +41,11 @@ public class MedicamentDao {
 	
 	public static ArrayList<Medicament> retournerCollectionDesMedicaments(){
 		ArrayList<Medicament> collectionDesMedicaments = new ArrayList<Medicament>();
-		ResultSet reqSelection = ConnexionMySql.execReqSelection("select CODEMED from Medicament;");
+		ResultSet reqSelection = ConnexionMySql.execReqSelection("select MED_DEPOTLEGAL from Medicament;");
 		try{
 		while (reqSelection.next()) {
-			String codeMedicament = reqSelection.getString(1);
-		    collectionDesMedicaments.add(MedicamentDao.rechercherMedicament(codeMedicament));
+			String MED_DEPOTLEGALicament = reqSelection.getString(1);
+		    collectionDesMedicaments.add(MedicamentDao.rechercherMedicament(MED_DEPOTLEGALicament));
 			}
 		}
 		catch (SQLException e) {
@@ -57,11 +57,11 @@ public class MedicamentDao {
 	
 	public static HashMap<String,Medicament> retournerDictionnaireDesMedicaments(){
 		HashMap<String, Medicament> diccoDesMedicaments = new HashMap<String, Medicament>();
-		ResultSet reqSelection = ConnexionMySql.execReqSelection("select CODEMED from Medicament");
+		ResultSet reqSelection = ConnexionMySql.execReqSelection("select MED_DEPOTLEGAL from Medicament");
 		try{
 		while (reqSelection.next()) {
-			String codeMedicament = reqSelection.getString(1);
-		    diccoDesMedicaments.put(codeMedicament, MedicamentDao.rechercherMedicament(codeMedicament));
+			String MED_DEPOTLEGALicament = reqSelection.getString(1);
+		    diccoDesMedicaments.put(MED_DEPOTLEGALicament, MedicamentDao.rechercherMedicament(MED_DEPOTLEGALicament));
 			}
 		}
 		catch (SQLException e) {

@@ -71,7 +71,7 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 		table = new JTable(data, columnNames);
 		
 		scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(400, 200));
+		scrollPane.setPreferredSize(new Dimension(1000, 600));
 		p.add(scrollPane);
 		
 		pSaisie = new JPanel();

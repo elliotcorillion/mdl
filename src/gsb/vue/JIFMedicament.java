@@ -52,22 +52,30 @@ public class JIFMedicament extends JInternalFrame  {
         JLcodeFam = new JLabel("Code Famille");
         JLlibFam = new JLabel("Libellé Famille");
          
-         JTdepotLegal = new JTextField(20);
-         JTnomCom = new JTextField();
+         JTdepotLegal = new JTextField(10);
+         JTnomCom = new JTextField(50);
          JTcompo = new JTextField();
          JTeffet = new JTextField();    
          JTcontreIndic = new JTextField();
-         JTprixEchan = new JTextField();
-         JTcodeFam = new JTextField();
-         JTlibFam = new JTextField();
+         JTprixEchan = new JTextField(5);
+         JTcodeFam = new JTextField(5);
+         JTlibFam = new JTextField(15);
          
+         pTexte.add(JLdepotLegal);
          pTexte.add(JTdepotLegal);
+         pTexte.add(JLnomCom);
          pTexte.add(JTnomCom);
+         pTexte.add(JLcompo);
          pTexte.add(JTcompo);
+         pTexte.add(JLeffet);
          pTexte.add(JTeffet);
+         pTexte.add(JLcontreIndic);
          pTexte.add(JTcontreIndic);
+         pTexte.add(JLprixEchan);
          pTexte.add(JTprixEchan);
+         pTexte.add(JLcodeFam);
          pTexte.add(JTcodeFam);
+         pTexte.add(JLlibFam);
          pTexte.add(JTlibFam);
 		
         // mise en forme de la fen�tre
@@ -80,7 +88,7 @@ public class JIFMedicament extends JInternalFrame  {
 	}
     
     public void remplirText(Medicament unMedicament) 	
-    {  // m�thode qui permet de remplir les zones de texte � partir des valeurs pass�es en param�tres
+    {  // méthode qui permet de remplir les zones de texte & partir des valeurs passées en paramètres
         JTdepotLegal.setText(unMedicament.getDepotLegal());
         JTnomCom.setText(unMedicament.getNomCommercial());
         JTcompo.setText(unMedicament.getComposition());

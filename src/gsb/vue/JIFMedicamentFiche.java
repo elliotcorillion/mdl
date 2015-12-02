@@ -12,10 +12,4 @@ public class JIFMedicamentFiche extends JIFMedicament {
 
 	}
 
-	public void remplirText(Medicament unMedicament) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
 }
