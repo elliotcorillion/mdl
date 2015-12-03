@@ -38,24 +38,24 @@ public class JIFMedicamentCons extends JIFMedicament  implements ActionListener 
         pBoutons.add(precedent);
         dernier = new JButton("Dernier");
         pBoutons.add(dernier);
-        // d�claration des sources d'�v�nements
+        // déclaration des sources d'événements
         premier.addActionListener(this);
         suivant.addActionListener(this);
         precedent.addActionListener(this);
         dernier.addActionListener(this);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-        setTitle("Consultation donn�es Medicament");
+        setTitle("Consultation données Medicament");
         
-        // r�cup�ration des donn�es Medicament dans la collection
+        // récupération des données Medicament dans la collection
         lesMedicaments = MedicamentDao.retournerCollectionDesMedicaments();
         indiceEnCours = 0;
         
-        if (lesMedicaments.size()!=0){ // si collection non vide, affichage des donn�es du premier Medicament
+        if (lesMedicaments.size()!=0){ // si collection non vide, affichage des données du premier Medicament
         	Medicament leMedicament = lesMedicaments.get(0);
 	    	remplirText(leMedicament);
 	    	}
         
-        // ajout d'un �couteur d'�v�nement pour la fermeture de la fen�tre
+        // ajout d'un �couteur d'événement pour la fermeture de la fen�tre
         addInternalFrameListener(new InternalFrameAdapter(){
             public void  internalFrameClosing(InternalFrameEvent e) {
                           //le code que tu veux ex�cuter � la fermeture de la JInternalFrame

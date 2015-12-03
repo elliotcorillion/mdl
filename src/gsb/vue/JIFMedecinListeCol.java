@@ -71,13 +71,13 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 		table = new JTable(data, columnNames);
 		
 		scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(1000, 600));
+		scrollPane.setPreferredSize(new Dimension(400, 200));
 		p.add(scrollPane);
 		
 		pSaisie = new JPanel();
 		JTcodeMedecin = new JTextField(20);
 		JTcodeMedecin.setMaximumSize(JTcodeMedecin.getPreferredSize());
-		JBafficherFiche = new JButton("Afficher Fiche m�decin");
+		JBafficherFiche = new JButton("Afficher Fiche médecin");
 		JBafficherFiche.addActionListener(this);
 		pSaisie.add(JTcodeMedecin);
 		pSaisie.add(JBafficherFiche);

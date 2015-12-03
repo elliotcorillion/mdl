@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class JIFMedicament extends JInternalFrame  {
+public class JIFMedicamentAjout extends JInternalFrame  {
 	/**
 	 * Commentaire pour <code>serialVersionUID</code>
 	 */
@@ -37,7 +37,7 @@ public class JIFMedicament extends JInternalFrame  {
     protected JTextField JTcodeFam;
     protected JTextField JTlibFam;
 	
-    public JIFMedicament() {
+    public JIFMedicamentAjout() {
     	p = new JPanel();  // panneau principal de la fen�tre
         pBoutons = new JPanel();    // panneau supportant les boutons
         pTexte = new JPanel(new GridLayout(8,2));
@@ -87,28 +87,18 @@ public class JIFMedicament extends JInternalFrame  {
 
 	}
     
-    public void remplirText(Medicament unMedicament) 	
-    {  // méthode qui permet de remplir les zones de texte & partir des valeurs passées en paramètres
-        JTdepotLegal.setText(unMedicament.getDepotLegal());
-        JTnomCom.setText(unMedicament.getNomCommercial());
-        JTcompo.setText(unMedicament.getComposition());
-        JTeffet.setText(unMedicament.getEffets());    
-        JTcontreIndic.setText(unMedicament.getContreIndication());
-        JTprixEchan.setText(String.valueOf(unMedicament.getPrixEchantillon()));
-        JTcodeFam.setText(unMedicament.getCodeFamille());
-        JTlibFam.setText(unMedicament.getLibelleFamille());
-     }
-     
-      public void viderText() 	
-    {  // m�thode qui permet de vider les zones de texte 
-    	  JTdepotLegal.setText("");        
-    	  JTnomCom.setText("");
-    	  JTcompo.setText("");
-    	  JTeffet.setText("");    
-    	  JTcontreIndic.setText("");
-    	  JTprixEchan.setText("");
-    	  JTcodeFam.setText("");
-    	  JTlibFam.setText("");
+    public void remplirText(Medicament unMedicament) {	
+    	JTdepotLegal.setText("");        
+    	JTnomCom.setText("");
+    	JTcompo.setText("");
+    	JTeffet.setText("");    
+    	JTcontreIndic.setText("");
+    	JTprixEchan.setText("");
+    	JTcodeFam.setText("");
+    	JTlibFam.setText("");
      }
 
+
+
 }
+

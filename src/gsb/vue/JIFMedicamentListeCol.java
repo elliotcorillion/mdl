@@ -58,18 +58,17 @@ public class JIFMedicamentListeCol extends JInternalFrame implements ActionListe
 			data[i][6] = unMedicament.getCodeFamille();
 			data[i][7] = unMedicament.getLibelleFamille();
 			
-			
 			i++;
 			}
 		String[] columnNames = {"Code", "Nom","Composition","Effets","Contre Indications","Prix Echantillon","Code Famille","Libelle Famille" };
 		table = new JTable(data, columnNames);
 		
 		scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(800, 200));
+		scrollPane.setPreferredSize(new Dimension(1200, 200));
 		p.add(scrollPane);
 		
 		pSaisie = new JPanel();
-		JTcodeMedicament = new JTextField(20);
+		JTcodeMedicament = new JTextField(10);
 		JTcodeMedicament.setMaximumSize(JTcodeMedicament.getPreferredSize());
 		JBafficherFiche = new JButton("Afficher Fiche Médicament");
 		JBafficherFiche.addActionListener(this);

@@ -50,7 +50,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		contentPane.add(desktopPane, BorderLayout.CENTER);
 
 		setTitle("GSB");
-		setSize(500, 400);
+		setSize(1300, 600);
 
 		// Ajout d'une barre de menus à la fenêtre
 		mbar = new JMenuBar();
@@ -66,9 +66,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		JMenuItem mE1 = new JMenuItem("Consultation Medicament");
 		mE1.addActionListener(this); // installation d'un écouteur d'action
 		mMedicaments.add(mE1);
-		JMenuItem mE2 = new JMenuItem("Ajout Medicaments");
+		JMenuItem mE2 = new JMenuItem("Stock Visiteur");
 		mE2.addActionListener(this);
 		mMedicaments.add(mE2);
+		JMenuItem mE3 = new JMenuItem("Ajout Stock Visiteur");
+		mE3.addActionListener(this);
+		mMedicaments.add(mE3);
 
 		mVisites = new JMenu("Visites");
 		JMenuItem mA1 = new JMenuItem("Consultation Visite");
@@ -99,8 +102,10 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 			}else if (ChoixOption.equals("Consultation Medicament")) {
 				// Creation d'une sous-fenêtre
 				ouvrirFenetre(new JIFMedicamentCons());
-			} else if (ChoixOption.equals("Ajout Medicaments")) {
-				ouvrirFenetre(new JIFMedicamentListeCol(this));
+			} else if (ChoixOption.equals("Stock Visiteur")) {
+				ouvrirFenetre(new JIFMedicamentStock());
+			}else if (ChoixOption.equals("Ajout Stock Visiteur")) {
+				ouvrirFenetre(new JIFMedicamentAjout());
 			}
 
 		}
@@ -115,7 +120,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		myJInternalFrame.setResizable(true);
 		myJInternalFrame.setMaximizable(true);
 		myJInternalFrame.setClosable(true);
-		myJInternalFrame.setSize(480, 380);
+		myJInternalFrame.setSize(1250, 500);
 		desktopPane.add(myJInternalFrame);
 	}
 

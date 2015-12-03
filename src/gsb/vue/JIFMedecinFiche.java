@@ -1,20 +1,18 @@
 /*
- * Créé le 2 mars 2015
+ * Crï¿½ï¿½ le 2 mars 2015
  *
- * TODO Pour changer le modèle de ce fichier généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * TODO Pour changer le modï¿½le de ce fichier gï¿½nï¿½rï¿½, allez ï¿½ :
+ * Fenï¿½tre - Prï¿½fï¿½rences - Java - Style de code - Modï¿½les de code
  */
 package gsb.vue;
-
-
 
 import gsb.modele.Medecin;
 
 /**
  * @author Isabelle
  * 2 mars 2015
- * TODO Pour changer le modèle de ce commentaire de type généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ * TODO Pour changer le modï¿½le de ce commentaire de type gï¿½nï¿½rï¿½, allez ï¿½ :
+ * Fenï¿½tre - Prï¿½fï¿½rences - Java - Style de code - Modï¿½les de code
  */
 public class JIFMedecinFiche extends JIFMedecin {
 
@@ -26,5 +24,4 @@ public class JIFMedecinFiche extends JIFMedecin {
 
 	}
 	
-
 }
