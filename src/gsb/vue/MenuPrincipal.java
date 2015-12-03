@@ -97,13 +97,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 			if (ChoixOption.equals("Consultation Medecin")) {
 				// Creation d'une sous-fenêtre
 				ouvrirFenetre(new JIFMedecinCons());
-			} else if (ChoixOption.equals("Liste Medecins")) {
+			}else if (ChoixOption.equals("Liste Medecins")) {
 				ouvrirFenetre(new JIFMedecinListeCol(this));
 			}else if (ChoixOption.equals("Consultation Medicament")) {
-				// Creation d'une sous-fenêtre
 				ouvrirFenetre(new JIFMedicamentCons());
-			} else if (ChoixOption.equals("Stock Visiteur")) {
-				ouvrirFenetre(new JIFMedicamentStock());
+			}else if (ChoixOption.equals("Stock Visiteur")) {
+				ouvrirFenetre(new JIFVisiteurListeCol(this));
 			}else if (ChoixOption.equals("Ajout Stock Visiteur")) {
 				ouvrirFenetre(new JIFMedicamentAjout());
 			}

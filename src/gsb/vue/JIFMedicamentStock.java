@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class JIFMedicamentStock extends JInternalFrame implements ActionListener  {
+public class JIFMedicamentStock extends JInternalFrame implements ActionListener {
 	/**
 	 * Commentaire pour <code>serialVersionUID</code>
 	 */
@@ -21,45 +21,27 @@ public class JIFMedicamentStock extends JInternalFrame implements ActionListener
 	protected JPanel p;  
 	protected JPanel pTexte;
 	protected JPanel pBoutons;
-	private JButton Ajouter;
-
+	private JButton Afficher;
 	protected JLabel JLcodeVisiteur;
-	protected JLabel JLdepotLegal;
-	protected JLabel JLquantite;
-    
 	protected JTextField JTcodeVisiteur;
-	protected JTextField JTdepotLegal;
-	protected JTextField JTquantite;
-	
+
     public JIFMedicamentStock() {
-    	super();
     	p = new JPanel();  // panneau principal de la fen�tre
         pBoutons = new JPanel();    // panneau supportant les boutons
-        pTexte = new JPanel(new GridLayout(3,2));
+        pTexte = new JPanel(new GridLayout(1,1));
     	
+        Afficher = new JButton("Afficher");
+        pBoutons.add(Afficher);
         
-        Ajouter = new JButton("Ajouter");
-        pBoutons.add(Ajouter);
-        
-        // d�claration des sources d'�v�nements
-        Ajouter.addActionListener(this);
-        setTitle("Consultation données Medecin");
+        Afficher.addActionListener(this);
+        setTitle("Consultation Stock Visiteur");
         
         JLcodeVisiteur = new JLabel("Code Visiteur");
-        JLdepotLegal = new JLabel("Depot Legal");
-        JLquantite = new JLabel("Quantite");
-         
         JTcodeVisiteur = new JTextField(20);
         JTcodeVisiteur.setMaximumSize(JTcodeVisiteur.getPreferredSize());
-        JTdepotLegal = new JTextField(20);
-        JTquantite = new JTextField(20);
-         
-         pTexte.add(JLcodeVisiteur);
-         pTexte.add(JTcodeVisiteur);
-         pTexte.add(JLdepotLegal);
-         pTexte.add(JTdepotLegal);
-         pTexte.add(JLquantite);
-         pTexte.add(JTquantite);
+        pTexte.add(JLcodeVisiteur);
+        pTexte.add(JTcodeVisiteur);
+
 		
         // mise en forme de la fen�tre
 
@@ -70,17 +52,17 @@ public class JIFMedicamentStock extends JInternalFrame implements ActionListener
 
 	}
     
-    public void actionPerformed(ActionEvent evt) { 
-		Object source = evt.getSource();
-   		if (source == Ajouter);		}
-    
     public void remplirText(Medicament unMedicament) {	
     	JTcodeVisiteur.setText("");        
-    	JTdepotLegal.setText("");
-    	JTquantite.setText("");
+
      }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 
 }
-

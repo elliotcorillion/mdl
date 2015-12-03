@@ -1,19 +1,19 @@
 /*
- * Cr�� le 3 mars 2015
+ * Cr�� le 3 Dec 2015
  *
- * TODO Pour changer le mod�le de ce fichier g�n�r�, allez � :
- * Fen�tre - Pr�f�rences - Java - Style de code - Mod�les de code
  */
 package gsb.vue;
 
-import gsb.modele.Medecin;
-import gsb.modele.dao.MedecinDao;
+import gsb.modele.Stocker;
+import gsb.modele.Visiteur;
+import gsb.modele.dao.VisiteurDao;
 
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 
 
 import javax.swing.JButton;
@@ -24,48 +24,47 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
- * @author Isabelle
  * 3 mars 2015
- * TODO Pour changer le mod�le de ce commentaire de type g�n�r�, allez � :
+ *  Pour changer le mod�le de ce commentaire de type g�n�r�, allez � :
  * Fen�tre - Pr�f�rences - Java - Style de code - Mod�les de code
  */
-public class JIFMedecinListeCol extends JInternalFrame implements ActionListener {
+public class JIFVisiteurListeCol extends JInternalFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	private ArrayList<Medecin> lesMedecins;
-
+	private ArrayList<Visiteur> lesVisiteurs;
 
 	protected JPanel p;
 	protected JScrollPane scrollPane;
 	protected JPanel pSaisie;
-	protected JTextField JTcodeMedecin;
+	protected JTextField JTcodeVisiteur;
 	protected JButton JBafficherFiche;
 	protected MenuPrincipal fenetreContainer;
 
-	public JIFMedecinListeCol(MenuPrincipal uneFenetreContainer) {
+	public JIFVisiteurListeCol(MenuPrincipal uneFenetreContainer) {
 
 		fenetreContainer = uneFenetreContainer;
-		// r�cup�ration des donn�es Medecin dans la collection
-		lesMedecins = MedecinDao.retournerCollectionDesMedecins();
+		// r�cup�ration des donn�es Visiteur dans la collection
+		lesVisiteurs = VisiteurDao.retournerCollectionDesVisiteurs();
 
-		int nbLignes = lesMedecins.size();
+		int nbLignes = lesVisiteurs.size();
 
 		JTable table;
+		
+		
 
 		p = new JPanel(); // panneau principal de la fen�tre
 
 		int i=0;
-		String[][] data = new String[nbLignes][5] ;
-		for(Medecin unMedecin : lesMedecins){
-			data[i][0] = unMedecin.getCodeMed();
-			data[i][1] = unMedecin.getNom();
-			data[i][2] = unMedecin.getPrenom();
-			data[i][3] = unMedecin.getVille();
-			data[i][4] = unMedecin.getCodePostal();
+		String[][] data = new String[nbLignes][4] ;
+		for(Visiteur unVisiteur : lesVisiteurs){
+			data[i][0] = unVisiteur.getMatriculeVisiteur();
+			data[i][1] = unVisiteur.getNomVisiteur();
+			data[i][2] = unVisiteur.getPrenomVisiteur();
+			data[i][3] = unVisiteur.getCodeUnite();
 			i++;
 			}
-		String[] columnNames = {"Code", "Nom","Prenom","Ville"};
+		String[] columnNames = {"Matricule", "Nom","Prenom","Unite"};
 		table = new JTable(data, columnNames);
 		
 		scrollPane = new JScrollPane(table);
@@ -73,11 +72,11 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 		p.add(scrollPane);
 		
 		pSaisie = new JPanel();
-		JTcodeMedecin = new JTextField(20);
-		JTcodeMedecin.setMaximumSize(JTcodeMedecin.getPreferredSize());
-		JBafficherFiche = new JButton("Afficher Fiche médecin");
+		JTcodeVisiteur = new JTextField(20);
+		JTcodeVisiteur.setMaximumSize(JTcodeVisiteur.getPreferredSize());
+		JBafficherFiche = new JButton("Afficher Stock Visiteur");
 		JBafficherFiche.addActionListener(this);
-		pSaisie.add(JTcodeMedecin);
+		pSaisie.add(JTcodeVisiteur);
 		pSaisie.add(JBafficherFiche);
 		p.add(pSaisie);
 		
@@ -93,9 +92,9 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
    		if (source == JBafficherFiche){
-   			Medecin unMedecin = MedecinDao.rechercherMedecin(JTcodeMedecin.getText());
-   			if (unMedecin!=null){
-   	   			fenetreContainer.ouvrirFenetre(new JIFMedecinFiche(unMedecin));
+   			Stocker unStock = StockerDao.rechercherStock(JTcodeVisiteur.getText());
+   			if (unStock!=null){
+   	   			fenetreContainer.ouvrirFenetre(new JIFVisiteurFiche(unStock));
    			}
    		}	
 	}

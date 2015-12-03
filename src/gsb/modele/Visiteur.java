@@ -15,13 +15,9 @@ public class Visiteur {
 	protected String loginVisiteur;
 	protected String mdpVisiteur;
 	protected String adresseVisiteur;
-	protected String telephoneVisiteur;
-	protected String dateEntreeVisiteur;
-	protected int prime;
-	protected String codeUnite;
-	protected String nomUnite;
 	protected String codePostal;
-	protected String ville;
+	protected String dateEntreeVisiteur;
+	protected String codeUnite;
 	
 	
 	/**
@@ -32,14 +28,12 @@ public class Visiteur {
 	 * @param unLogin
 	 * @param unMdp
 	 * @param uneAdresseVisiteur
-	 * @param unTelephoneVisiteur
-	 * @param uneDateEntree
-	 * @param unePrime
-	 * @param uneUnite
 	 * @param codePostal
-	 * @param ville
+	 * @param uneDateEntree
+	 * @param unCodenite
+	
 	 */
-	public Visiteur (String unMatriculeVisiteur, String unNomVisiteur, String unPrenomVisiteur, String unLogin, String unMdp, String uneAdresseVisiteur, String unTelephoneVisiteur, String uneDateEntree, int unePrime, String codeUnite, String nomUnite, String codePostal, String ville){
+	public Visiteur (String unMatriculeVisiteur, String unNomVisiteur, String unPrenomVisiteur, String unLogin, String unMdp, String uneAdresseVisiteur, String codePostal,  String uneDateEntree, String codeUnite){
 		
 		this.matriculeVisiteur = unMatriculeVisiteur;
 		this.nomVisiteur = unNomVisiteur;
@@ -47,13 +41,10 @@ public class Visiteur {
 		this.loginVisiteur = unLogin;
 		this.mdpVisiteur = unMdp;
 		this.adresseVisiteur = uneAdresseVisiteur;
-		this.telephoneVisiteur = unTelephoneVisiteur;
-		this.dateEntreeVisiteur = uneDateEntree;
-		this.prime = unePrime;
-		this.codeUnite = codeUnite;
-		this.nomUnite = nomUnite;
 		this.codePostal = codePostal;
-		this.ville = ville;
+		this.dateEntreeVisiteur = uneDateEntree;
+		this.codeUnite = codeUnite;
+		
 		
 	}
 
@@ -153,21 +144,7 @@ public class Visiteur {
 		this.adresseVisiteur = adresseVisiteur;
 	}
 
-	/**
-	 * 
-	 * @return Retourne le numéro de téléphone du visiteur
-	 */
-	public String getTelephoneVisiteur() {
-		return telephoneVisiteur;
-	}
 
-	/**
-	 * 
-	 * @param Set le telephoneVisiteur
-	 */
-	public void setTelephoneVisiteur(String telephoneVisiteur) {
-		this.telephoneVisiteur = telephoneVisiteur;
-	}
 
 	/**
 	 * 
@@ -185,57 +162,15 @@ public class Visiteur {
 		this.dateEntreeVisiteur = dateEntreeVisiteur;
 	}
 
-	/**
-	 * 
-	 * @return Retourne la prime du visiteur
-	 */
-	public int getPrime() {
-		return prime;
-	}
-
-	/**
-	 * 
-	 * @param Set la prime
-	 */
-	public void setPrime(int prime) {
-		this.prime = prime;
-	}
-
-	/**
-	 * 
-	 * @return Retourne la prime du visiteur
-	 */
 	public String getCodeUnite() {
 		return codeUnite;
 	}
 
-	/**
-	 * 
-	 * @param Set la prime
-	 */
-	public void setNomUnite(String nomUnite) {
-		this.nomUnite = nomUnite;
-	}
-	/**
-	 * 
-	 * @return Retourne la prime du visiteur
-	 */
-	public String getNomUnite() {
-		return nomUnite;
-	}
-
-	/**
-	 * 
-	 * @param Set la prime
-	 */
 	public void setCodeUnite(String codeUnite) {
 		this.codeUnite = codeUnite;
 	}
 
-	/**
-	 * @return 
-	 * @return Renvoie codePostal.
-	 */
+
 	public String getCodePostal() {
 		return codePostal;
 	}
@@ -252,11 +187,5 @@ public class Visiteur {
 	public String getVille() {
 		return codePostal;
 	}
-	/**
-	 * @param codePostal codePostal � d�finir.
-	 */
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
-	
+
 }

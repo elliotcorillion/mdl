@@ -4,12 +4,16 @@ import gsb.modele.Medicament;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class JIFMedicamentAjout extends JInternalFrame  {
+public class JIFMedicamentAjout extends JInternalFrame implements ActionListener  {
 	/**
 	 * Commentaire pour <code>serialVersionUID</code>
 	 */
@@ -17,66 +21,45 @@ public class JIFMedicamentAjout extends JInternalFrame  {
 	protected JPanel p;  
 	protected JPanel pTexte;
 	protected JPanel pBoutons;
-	
+	private JButton Ajouter;
 
+	protected JLabel JLcodeVisiteur;
 	protected JLabel JLdepotLegal;
-	protected JLabel JLnomCom;
-	protected JLabel JLcompo;
-	protected JLabel JLeffet;
-	protected JLabel JLcontreIndic;
-    protected JLabel JLprixEchan;
-    protected JLabel JLcodeFam;
-    protected JLabel JLlibFam;
+	protected JLabel JLquantite;
     
+	protected JTextField JTcodeVisiteur;
 	protected JTextField JTdepotLegal;
-	protected JTextField JTnomCom;
-	protected JTextField JTcompo;
-	protected JTextField JTeffet;
-	protected JTextField JTcontreIndic;
-    protected JTextField JTprixEchan;
-    protected JTextField JTcodeFam;
-    protected JTextField JTlibFam;
+	protected JTextField JTquantite;
 	
     public JIFMedicamentAjout() {
+    	super();
     	p = new JPanel();  // panneau principal de la fen�tre
         pBoutons = new JPanel();    // panneau supportant les boutons
-        pTexte = new JPanel(new GridLayout(8,2));
+        pTexte = new JPanel(new GridLayout(3,2));
     	
-        JLdepotLegal = new JLabel("Depot Légal");
-        JLnomCom = new JLabel("Nom Commerciale");
-        JLcompo = new JLabel("Composition");
-        JLeffet = new JLabel("Effet");
-        JLcontreIndic = new JLabel("Contre Indication");
-        JLprixEchan = new JLabel("Prix Echantillon");
-        JLcodeFam = new JLabel("Code Famille");
-        JLlibFam = new JLabel("Libellé Famille");
+        
+        Ajouter = new JButton("Ajouter");
+        pBoutons.add(Ajouter);
+        
+        // d�claration des sources d'�v�nements
+        Ajouter.addActionListener(this);
+        setTitle("Consultation données Medicament");
+        
+        JLcodeVisiteur = new JLabel("Code Visiteur");
+        JLdepotLegal = new JLabel("Depot Legal");
+        JLquantite = new JLabel("Quantite");
          
-         JTdepotLegal = new JTextField(20);
-         JTdepotLegal.setMaximumSize(JTdepotLegal.getPreferredSize());
-         JTnomCom = new JTextField(40);
-         JTcompo = new JTextField(40);
-         JTeffet = new JTextField(40);    
-         JTcontreIndic = new JTextField(40);
-         JTprixEchan = new JTextField(40);
-         JTcodeFam = new JTextField(40);
-         JTlibFam = new JTextField(40);
+        JTcodeVisiteur = new JTextField(20);
+        JTcodeVisiteur.setMaximumSize(JTcodeVisiteur.getPreferredSize());
+        JTdepotLegal = new JTextField(20);
+        JTquantite = new JTextField(20);
          
+         pTexte.add(JLcodeVisiteur);
+         pTexte.add(JTcodeVisiteur);
          pTexte.add(JLdepotLegal);
          pTexte.add(JTdepotLegal);
-         pTexte.add(JLnomCom);
-         pTexte.add(JTnomCom);
-         pTexte.add(JLcompo);
-         pTexte.add(JTcompo);
-         pTexte.add(JLeffet);
-         pTexte.add(JTeffet);
-         pTexte.add(JLcontreIndic);
-         pTexte.add(JTcontreIndic);
-         pTexte.add(JLprixEchan);
-         pTexte.add(JTprixEchan);
-         pTexte.add(JLcodeFam);
-         pTexte.add(JTcodeFam);
-         pTexte.add(JLlibFam);
-         pTexte.add(JTlibFam);
+         pTexte.add(JLquantite);
+         pTexte.add(JTquantite);
 		
         // mise en forme de la fen�tre
 
@@ -87,15 +70,14 @@ public class JIFMedicamentAjout extends JInternalFrame  {
 
 	}
     
+    public void actionPerformed(ActionEvent evt) { 
+		Object source = evt.getSource();
+   		if (source == Ajouter);		}
+    
     public void remplirText(Medicament unMedicament) {	
-    	JTdepotLegal.setText("");        
-    	JTnomCom.setText("");
-    	JTcompo.setText("");
-    	JTeffet.setText("");    
-    	JTcontreIndic.setText("");
-    	JTprixEchan.setText("");
-    	JTcodeFam.setText("");
-    	JTlibFam.setText("");
+    	JTcodeVisiteur.setText("");        
+    	JTdepotLegal.setText("");
+    	JTquantite.setText("");
      }
 
 
