@@ -8,6 +8,7 @@ package gsb.vue;
 
 import gsb.modele.Medecin;
 
+
 /**
  * @author Isabelle
  * 2 mars 2015

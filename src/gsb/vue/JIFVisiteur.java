@@ -7,8 +7,6 @@
 package gsb.vue;
 
 import gsb.modele.Stocker;
-import gsb.modele.Visiteur;
-
 import java.awt.Container;
 import java.awt.GridLayout;
 

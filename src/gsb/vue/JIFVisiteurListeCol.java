@@ -6,6 +6,7 @@ package gsb.vue;
 
 import gsb.modele.Stocker;
 import gsb.modele.Visiteur;
+import gsb.modele.dao.StockerDao;
 import gsb.modele.dao.VisiteurDao;
 
 import java.awt.Container;
@@ -13,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 
 
 
@@ -51,8 +53,6 @@ public class JIFVisiteurListeCol extends JInternalFrame implements ActionListene
 
 		JTable table;
 		
-		
-
 		p = new JPanel(); // panneau principal de la fen�tre
 
 		int i=0;
@@ -93,7 +93,7 @@ public class JIFVisiteurListeCol extends JInternalFrame implements ActionListene
 		Object source = arg0.getSource();
    		if (source == JBafficherFiche){
    			Stocker unStock = StockerDao.rechercherStock(JTcodeVisiteur.getText());
-   			if (unStock!=null){
+   			if (unStock != null){
    	   			fenetreContainer.ouvrirFenetre(new JIFVisiteurFiche(unStock));
    			}
    		}	

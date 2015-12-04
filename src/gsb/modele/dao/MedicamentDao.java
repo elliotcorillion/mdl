@@ -23,16 +23,16 @@ import java.util.HashMap;
  */
 public class MedicamentDao {
 	
-	public static Medicament rechercherMedicament(String MED_DEPOTLEGALicament){
+	public static Medicament rechercherMedicament(String MED_DEPOTLEGAL){
 		Medicament unMedicament=null;
-		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from Medicament where MED_DEPOTLEGAL ='"+MED_DEPOTLEGALicament+"';");
+		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from Medicament where MED_DEPOTLEGAL ='"+MED_DEPOTLEGAL+"';");
 		try {
 			if (reqSelection.next()) {
 				unMedicament = new Medicament(reqSelection.getString(1), reqSelection.getString(2), reqSelection.getString(3), reqSelection.getString(4), reqSelection.getString(5), reqSelection.getFloat(6), reqSelection.getString(7), reqSelection.getString(8));	
 			};
 			}
 		catch(Exception e) {
-			System.out.println("erreur reqSelection.next() pour la requ�te - select * from Medicament where MED_DEPOTLEGAL ='"+MED_DEPOTLEGALicament+"';");
+			System.out.println("erreur reqSelection.next() pour la requ�te - select * from Medicament where MED_DEPOTLEGAL ='"+MED_DEPOTLEGAL+"';");
 			e.printStackTrace();
 			}
 		ConnexionMySql.fermerConnexionBd();
@@ -44,8 +44,8 @@ public class MedicamentDao {
 		ResultSet reqSelection = ConnexionMySql.execReqSelection("select MED_DEPOTLEGAL from Medicament;");
 		try{
 		while (reqSelection.next()) {
-			String MED_DEPOTLEGALicament = reqSelection.getString(1);
-		    collectionDesMedicaments.add(MedicamentDao.rechercherMedicament(MED_DEPOTLEGALicament));
+			String MED_DEPOTLEGAL = reqSelection.getString(1);
+		    collectionDesMedicaments.add(MedicamentDao.rechercherMedicament(MED_DEPOTLEGAL));
 			}
 		}
 		catch (SQLException e) {
@@ -60,8 +60,8 @@ public class MedicamentDao {
 		ResultSet reqSelection = ConnexionMySql.execReqSelection("select MED_DEPOTLEGAL from Medicament");
 		try{
 		while (reqSelection.next()) {
-			String MED_DEPOTLEGALicament = reqSelection.getString(1);
-		    diccoDesMedicaments.put(MED_DEPOTLEGALicament, MedicamentDao.rechercherMedicament(MED_DEPOTLEGALicament));
+			String MED_DEPOTLEGAL = reqSelection.getString(1);
+		    diccoDesMedicaments.put(MED_DEPOTLEGAL, MedicamentDao.rechercherMedicament(MED_DEPOTLEGAL));
 			}
 		}
 		catch (SQLException e) {
