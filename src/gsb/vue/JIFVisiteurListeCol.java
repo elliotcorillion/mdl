@@ -15,11 +15,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
-
-
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -40,7 +38,8 @@ public class JIFVisiteurListeCol extends JInternalFrame implements ActionListene
 	protected JScrollPane scrollPane;
 	protected JPanel pSaisie;
 	protected JTextField JTcodeVisiteur;
-	protected JButton JBafficherFiche;
+	protected JTextField JTcodeDepotLegal;
+	protected JButton JBajouterFiche;
 	protected MenuPrincipal fenetreContainer;
 
 	public JIFVisiteurListeCol(MenuPrincipal uneFenetreContainer) {
@@ -74,10 +73,10 @@ public class JIFVisiteurListeCol extends JInternalFrame implements ActionListene
 		pSaisie = new JPanel();
 		JTcodeVisiteur = new JTextField(20);
 		JTcodeVisiteur.setMaximumSize(JTcodeVisiteur.getPreferredSize());
-		JBafficherFiche = new JButton("Afficher Stock Visiteur");
-		JBafficherFiche.addActionListener(this);
+		JBajouterFiche = new JButton("Afficher Stock Visiteur");
+		JBajouterFiche.addActionListener(this);
 		pSaisie.add(JTcodeVisiteur);
-		pSaisie.add(JBafficherFiche);
+		pSaisie.add(JBajouterFiche);
 		p.add(pSaisie);
 		
 		// mise en forme de la fen�tre
@@ -91,11 +90,14 @@ public class JIFVisiteurListeCol extends JInternalFrame implements ActionListene
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
-   		if (source == JBafficherFiche){
+   		if (source == JBajouterFiche){
    			Stocker unStock = StockerDao.rechercherStock(JTcodeVisiteur.getText());
    			if (unStock != null){
-   	   			fenetreContainer.ouvrirFenetre(new JIFVisiteurFiche(unStock));
-   			}
+   			fenetreContainer.ouvrirFenetre(new JIFVisiteurFiche(unStock));
+			JOptionPane.showMessageDialog(null, "Requête reussi.") ;
+			}else{
+			JOptionPane.showMessageDialog(null, "Erreur de saisie.") ;
+			}
    		}	
 	}
 }

@@ -16,8 +16,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
+
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -96,7 +98,11 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
    			Medecin unMedecin = MedecinDao.rechercherMedecin(JTcodeMedecin.getText());
    			if (unMedecin!=null){
    	   			fenetreContainer.ouvrirFenetre(new JIFMedecinFiche(unMedecin));
+   				JOptionPane.showMessageDialog(null, "Requête reussi") ;
+   			}else{
+				JOptionPane.showMessageDialog(null, "Erreur de saisie.") ;
    			}
+
    		}	
 	}
 }

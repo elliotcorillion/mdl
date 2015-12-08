@@ -10,6 +10,7 @@ import gsb.modele.Medecin;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -97,6 +98,8 @@ public class JIFMedecin extends JInternalFrame  {
          p.add(pBoutons);
          Container contentPane = getContentPane();
          contentPane.add(p);
+         
+
 
 	}
     

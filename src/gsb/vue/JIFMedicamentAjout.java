@@ -1,6 +1,8 @@
 package gsb.vue;
 
 import gsb.modele.Medicament;
+import gsb.modele.Stocker;
+import gsb.modele.dao.StockerDao;
 
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -10,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -68,19 +71,23 @@ public class JIFMedicamentAjout extends JInternalFrame implements ActionListener
          Container contentPane = getContentPane();
          contentPane.add(p);
 
-	}
-    
-    public void actionPerformed(ActionEvent evt) { 
-		Object source = evt.getSource();
-   		if (source == Ajouter);		}
-    
+    }
+   
     public void remplirText(Medicament unMedicament) {	
     	JTcodeVisiteur.setText("");        
     	JTdepotLegal.setText("");
     	JTquantite.setText("");
      }
-
-
-
-}
+    
+    public void actionPerformed(ActionEvent arg0) {
+		Object source = arg0.getSource();
+   		if (source == Ajouter){
+   			Stocker unStock = StockerDao.ajouterStock(JTcodeVisiteur.getText(),JTdepotLegal.getText(),JTquantite.getText());
+   			if (unStock != null){
+			JOptionPane.showMessageDialog(null, "Erreur de saisie.") ;
+			}else{
+				JOptionPane.showMessageDialog(null, "Requête reussi.") ;
+			}
+	}
+    }}
 
