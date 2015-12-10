@@ -55,7 +55,8 @@ public class ConnexionMySql { // DAO = Data Access Object
 				Statement requete = cnx.createStatement(); 
 				resultatReq =requete.executeQuery(laRequete); 
 		} 
-		catch(Exception e) {  System.out.println("Erreur requete : "+laRequete);  }
+		catch(Exception e) {  System.out.println("Erreur requete : "+laRequete);
+		e.printStackTrace();}
 		return resultatReq;	
 	}
 	

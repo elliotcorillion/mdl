@@ -20,7 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 /**
- * @author ELliot 02 Nov. 2015 
+ * @author Elliot 02 Nov. 2015 
  */
 public class MenuPrincipal extends JFrame implements ActionListener {
 

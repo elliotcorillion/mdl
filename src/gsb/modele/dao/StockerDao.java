@@ -16,8 +16,8 @@ import java.util.HashMap;
 
 
 /**
- * @author Isabelle
- * 22 f�vr. 2015
+ * @author Elliot
+ * 10 Dec. 2015
  * TODO Pour changer le mod�le de ce commentaire de type g�n�r�, allez � :
  * Fen�tre - Pr�f�rences - Java - Style de code - Mod�les de code
  */
@@ -38,22 +38,18 @@ public class StockerDao {
 		ConnexionMySql.fermerConnexionBd();
 		return unStock;
 	}
-	//
+	//Methode ajouter Stock
 	public static Stocker ajouterStock(String unMatricule, String unNom, int uneQteStock){
 		try {
-			ResultSet reqSelection = ConnexionMySql.execReqSelection("Insert INTO STOCKER VALUES ('"+unMatricule+"','"+unNom+"',"+uneQteStock+");");
-			;
+			ConnexionMySql.execReqMaj("Insert INTO STOCKER VALUES ('"+unMatricule+"','"+unNom+"',"+uneQteStock+");");
 			}
 		catch(Exception e) {
-			System.out.println("erreur reqSelection.next() pour la requ�te - select * from Stocker where Matricule ='"+unMatricule+"';");
+			System.out.println("erreur reqSelection.next() pour la requ�te - Insert INTO STOCKER VALUES ('"+unMatricule+"','"+unNom+"',"+uneQteStock+");");
 			e.printStackTrace();
 			}
 		ConnexionMySql.fermerConnexionBd();
 		return null;
 	}
-	//
-	
-	
 	
 	
 	

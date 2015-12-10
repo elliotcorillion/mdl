@@ -1,6 +1,5 @@
 package gsb.vue;
 
-import gsb.modele.Medicament;
 import gsb.modele.Stocker;
 import gsb.modele.dao.StockerDao;
 
@@ -46,7 +45,7 @@ public class JIFMedicamentAjout extends JInternalFrame implements ActionListener
         
         // d�claration des sources d'�v�nements
         Ajouter.addActionListener(this);
-        setTitle("Consultation données Medicament");
+        setTitle("Ajout stock visiteur");
         
         JLcodeVisiteur = new JLabel("Code Visiteur");
         JLdepotLegal = new JLabel("Depot Legal");
@@ -73,7 +72,7 @@ public class JIFMedicamentAjout extends JInternalFrame implements ActionListener
 
     }
    
-    public void remplirText(Medicament unMedicament) {	
+    public void remplirText(Stocker unStock) {	
     	JTcodeVisiteur.setText("");        
     	JTdepotLegal.setText("");
     	JTquantite.setText("");
@@ -82,11 +81,11 @@ public class JIFMedicamentAjout extends JInternalFrame implements ActionListener
     public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
    		if (source == Ajouter){
-   			Stocker unStock = StockerDao.ajouterStock(JTcodeVisiteur.getText(),JTdepotLegal.getText(),JTquantite.getText());
+   			Stocker unStock = StockerDao.ajouterStock(JTcodeVisiteur.getText(),JTdepotLegal.getText(),Integer.parseInt((JTquantite.getText())));
    			if (unStock != null){
-			JOptionPane.showMessageDialog(null, "Erreur de saisie.") ;
+			JOptionPane.showMessageDialog(null, "Erreur de saisie.");
 			}else{
-				JOptionPane.showMessageDialog(null, "Requête reussi.") ;
+				JOptionPane.showMessageDialog(null, "Requête reussi.");
 			}
 	}
     }}
